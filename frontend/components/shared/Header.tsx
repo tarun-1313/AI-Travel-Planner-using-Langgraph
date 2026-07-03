@@ -26,8 +26,10 @@ export function Header() {
               {[
                 { label: 'Dashboard', href: '/dashboard' },
                 { label: '🤖 JARVIS', href: '/chat' },
+                { label: 'Memories', href: '/memories' },
+                { label: 'Advanced', href: '/advanced' },
+                { label: 'Achievements', href: '/achievements' },
                 { label: 'Insights', href: '/insights' },
-                { label: 'Settings', href: '/settings' },
               ].map((item) => (
                 <a
                   key={item.label}
@@ -57,8 +59,11 @@ export function Header() {
               {[
                 { label: 'Dashboard', href: '/dashboard' },
                 { label: '🤖 JARVIS Chat', href: '/chat' },
+                { label: 'Memories', href: '/memories' },
+                { label: 'Advanced', href: '/advanced' },
+                { label: 'Achievements', href: '/achievements' },
                 { label: 'Insights', href: '/insights' },
-                { label: 'Settings', href: '/settings' },
+                { label: 'Export', href: '/export' },
               ].map((item) => (
                 <a
                   key={item.label}
