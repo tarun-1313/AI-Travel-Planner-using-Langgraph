@@ -1,39 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium Travel - Warm & Joyful Palette */
+  /* Premium Travel - Apple/Airbnb Inspired Palette */
   --background: #ffffff;
-  --background-secondary: #f8fafb;
-  --background-tertiary: #f0f4f8;
+  --background-secondary: #fafafa;
+  --background-tertiary: #f5f5f5;
   
-  --foreground: #1a202c;
-  --foreground-muted: #64748b;
+  --foreground: #1a1a1a;
+  --foreground-muted: #6b7280;
   
-  /* Primary Brand Color - Sky Blue */
-  --primary: #0066ff;
-  --primary-light: #3385ff;
-  --primary-dark: #0052cc;
+  /* Primary Brand Colors */
+  --primary: #2563eb;        /* Ocean Blue */
+  --primary-light: #3b82f6;  /* Bright Blue */
+  --primary-dark: #1e40af;   /* Deep Blue */
+  
+  /* Sky Blue for hero/backgrounds */
+  --sky: #38bdf8;
   
   /* Accent - Sunset Orange */
-  --accent: #ff6b35;
-  --accent-light: #ff8555;
+  --accent: #fb923c;
+  --accent-light: #fdba74;
   
   /* Semantic Colors */
-  --ocean: #0099ff;
-  --sunset: #ff6b35;
-  --sand: #f4e4c1;
-  --palm: #2ecc71;
-  
-  /* Neutrals */
-  --neutral-dark: #1a202c;
-  --neutral-light: #ffffff;
-  --neutral-gray: #e2e8f0;
-  
-  /* Additional */
+  --ocean-dark: #0369a1;
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #ef4444;
-  --border: #e2e8f0;
+  
+  /* Neutrals */
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-400: #a3a3a3;
+  --neutral-600: #525252;
+  --neutral-900: #1a1a1a;
+  
+  --border: #e5e5e5;
 }
 
 @theme inline {
@@ -45,15 +47,21 @@
   --color-primary: var(--primary);
   --color-primary-light: var(--primary-light);
   --color-primary-dark: var(--primary-dark);
+  --color-sky: var(--sky);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
   --color-border: var(--border);
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-900: var(--neutral-900);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --radius: 0.75rem;
+  --radius: 1rem;
 }
 
 * {
@@ -65,14 +73,27 @@ body {
   font-family: var(--font-geist-sans);
 }
 
-/* Soft shadow utilities - Premium look */
+/* Premium shadow utilities - Apple-inspired */
 .card {
   @apply rounded-2xl bg-white transition-all;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.card-hover {
+  @apply cursor-pointer;
 }
 
 .card-hover:hover {
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.card-elevated {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.card-large {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Subtle glow for interactive elements */
