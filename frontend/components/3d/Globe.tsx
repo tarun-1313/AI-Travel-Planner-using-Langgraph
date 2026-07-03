@@ -84,6 +84,28 @@ export function Globe() {
     const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
     scene.add(glowMesh);
 
+    // Add aurora borealis particles
+    const auroraGeometry = new THREE.BufferGeometry();
+    const auroraCount = 500;
+    const auroraPositions = new Float32Array(auroraCount * 3);
+    
+    for (let i = 0; i < auroraCount * 3; i += 3) {
+      auroraPositions[i] = (Math.random() - 0.5) * 3; // x
+      auroraPositions[i + 1] = Math.random() * 0.5 + 0.8; // y (northern hemisphere)
+      auroraPositions[i + 2] = (Math.random() - 0.5) * 3; // z
+    }
+    
+    auroraGeometry.setAttribute('position', new THREE.BufferAttribute(auroraPositions, 3));
+    const auroraMaterial = new THREE.PointsMaterial({
+      color: 0x7c3aed,
+      size: 0.02,
+      transparent: true,
+      opacity: 0.6,
+      sizeAttenuation: true,
+    });
+    const aurora = new THREE.Points(auroraGeometry, auroraMaterial);
+    scene.add(aurora);
+
     // Lighting
     const light = new THREE.PointLight(0x00d9ff, 1.5);
     light.position.set(5, 3, 5);
@@ -94,13 +116,19 @@ export function Globe() {
 
     // Animation
     let animationId: number;
+    let time = 0;
     const animate = () => {
       animationId = requestAnimationFrame(animate);
+      time += 0.001;
 
       globe.rotation.x += 0.0002;
       globe.rotation.y += 0.0003;
       glowMesh.rotation.x += 0.0001;
       glowMesh.rotation.y += 0.0004;
+
+      // Aurora animation
+      aurora.rotation.y += 0.0001;
+      (auroraMaterial as THREE.PointsMaterial).opacity = 0.4 + Math.sin(time * 2) * 0.2;
 
       renderer.render(scene, camera);
     };
