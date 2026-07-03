@@ -1,32 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark Futuristic Color Palette */
-  --background: #0a0e27;
-  --background-secondary: #0f1535;
-  --background-tertiary: #151d3a;
+  /* Premium Travel - Warm & Joyful Palette */
+  --background: #ffffff;
+  --background-secondary: #f8fafb;
+  --background-tertiary: #f0f4f8;
   
-  --foreground: #e0e8ff;
-  --foreground-muted: #a5b4fc;
+  --foreground: #1a202c;
+  --foreground-muted: #64748b;
   
-  /* Primary Brand Color - Neon Blue */
-  --primary: #00d9ff;
-  --primary-light: #33e8ff;
-  --primary-dark: #00a8cc;
+  /* Primary Brand Color - Sky Blue */
+  --primary: #0066ff;
+  --primary-light: #3385ff;
+  --primary-dark: #0052cc;
   
-  /* Accent - Aurora Purple */
-  --accent: #7c3aed;
-  --accent-light: #a78bfa;
+  /* Accent - Sunset Orange */
+  --accent: #ff6b35;
+  --accent-light: #ff8555;
+  
+  /* Semantic Colors */
+  --ocean: #0099ff;
+  --sunset: #ff6b35;
+  --sand: #f4e4c1;
+  --palm: #2ecc71;
   
   /* Neutrals */
-  --neutral-dark: #0a0e27;
-  --neutral-light: #e0e8ff;
+  --neutral-dark: #1a202c;
+  --neutral-light: #ffffff;
+  --neutral-gray: #e2e8f0;
   
   /* Additional */
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #ef4444;
-  --border: #1e293b;
+  --border: #e2e8f0;
 }
 
 @theme inline {
@@ -58,26 +65,23 @@ body {
   font-family: var(--font-geist-sans);
 }
 
-/* Glassmorphism utilities */
-.glass {
-  @apply bg-black/20 backdrop-blur-md border border-white/10;
+/* Soft shadow utilities - Premium look */
+.card {
+  @apply rounded-2xl bg-white transition-all;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
-.glass-dark {
-  @apply bg-black/40 backdrop-blur-xl border border-white/5;
+.card-hover:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-/* Neon glow effects */
+/* Subtle glow for interactive elements */
 .glow-primary {
-  @apply shadow-lg shadow-primary/20;
+  @apply shadow-lg;
 }
 
 .glow-accent {
-  @apply shadow-lg shadow-accent/20;
-}
-
-.glow-text-primary {
-  text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+  @apply shadow-lg;
 }
 
 /* Smooth scrolling */
@@ -90,16 +94,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background: var(--neutral-gray);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-light);
+  background: var(--primary);
 }
 
 /* Animations */
